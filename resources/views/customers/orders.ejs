@@ -22,20 +22,21 @@
             </thead>
             <tbody>
                 <% if(orders.length) { %>
-                <% orders.forEach((order) => { %>
+                <% orders.forEach((orders) => { %>
                 <tr>
                     <td class="border px-4 py-2">
-                        <a class="link" href="/"><%= order._id %></a>
+                        <a class="link" href="/"><%= orders._id %></a>
                     </td>
                     <td class="border px-4 py-2">
-                        <%= order.phone %>
+                        <%= orders.phone %>
                     </td>
                     <td class="border px-4 py-2">
-                        <%= order.address %>
+                        <%= orders.address %>
                     </td>
                     <td class="border px-4 py-2">
-                        <%= moment(order.createdAt).format('hh:mm A') %>
+                        <%= moment(orders.createdAt).format('hh:mm A') %>
                     </td>
+                   
                 </tr>
                 <% }) %>
                 <% } else { %>
