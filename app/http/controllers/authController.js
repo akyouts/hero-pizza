@@ -2,6 +2,7 @@ const Usermodel = require("../../models/user")
 const bcrypt = require('bcrypt')
 
 const passport = require('passport')
+const admin = require("../middlewares/admin")
 
 
 function authController(){    
@@ -25,6 +26,10 @@ function authController(){
                         req.flash('error',info.message)
                        return next(err)
                        
+                   }
+                   if (user.role == 'admin')
+                   {
+                       return res.redirect('/admin/orders')
                    }  
                    res.redirect('/')
 

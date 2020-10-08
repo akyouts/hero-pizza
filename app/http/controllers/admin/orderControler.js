@@ -1,13 +1,24 @@
-const Orders = require('../../../models/order')
+const Order = require('../../../models/order')
 
 
 function adminOrder(){
 
     return {
         index(req,res){
-            Orders.find({status : {$ne : 'completed'}},null,{sort : {'createdAdt' : -1}}).populate('customerid','-password').exec((err,orders)=>{
-                res.render('admin/orders',{orders : orders})
-            })
+            Order.find({status : {$ne : 'completed'}},null,{sort : {'createdAdt' : -1}}).populate('customerid','-password').then(orders=>{
+                if (req.xhr)
+                {
+                    
+                   
+                    return res.json(orders)
+
+                }
+                return res.render('admin/orders')
+            }).catch(err => 
+                {
+                    console.log(err)
+                    res.render('<h1>Something Went Wrong</h1>')
+                })
         }
     }
 }

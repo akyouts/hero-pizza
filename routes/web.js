@@ -1,11 +1,16 @@
 const homeController = require('../app/http/controllers/homeController')
 const authController = require('../app/http/controllers/authController')
 const cartController = require('../app/http/controllers/customers/cartController')
-const guest = require('../app/http/middlewares/guest')
+
 const ordersController = require('../app/http/controllers/customers/orderController')
-const auth = require('../app/http/middlewares/auth')
+
 const adminOrderController = require('../app/http/controllers/admin/orderControler')
 
+
+//middlewares
+const guest = require('../app/http/middlewares/guest')
+const auth = require('../app/http/middlewares/auth')
+const admin = require('../app/http/middlewares/admin')
 
 
 
@@ -25,7 +30,7 @@ function initRoutes(app) {
 
 
     //admin Routes
-    app.get('/admin/orders',adminOrderController().index)
+    app.get('/admin/orders',admin,adminOrderController().index)
    
 
     

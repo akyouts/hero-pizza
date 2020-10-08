@@ -1,5 +1,6 @@
 import axios from 'axios'
 import Noty from 'noty';
+import { initAdmin } from './admin'
  
 
 let addtocart = document.querySelectorAll('.add-to-cart')
@@ -37,3 +38,5 @@ addtocart.forEach((btn)=>{
         updateCart(JSON.parse(btn.dataset.pizza))
     })
 })
+
+initAdmin()
