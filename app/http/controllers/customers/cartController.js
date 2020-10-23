@@ -33,6 +33,15 @@ function cartController() {
                    totalQuantity : req.session.cart.totalQuantity
                })
 
+           },
+           clearCart(req,res)
+           {
+            req.session.cart = {
+                items : {},
+                totalQuantity : 0,
+                totalPrice : 0
+            }
+            return res.redirect('/cart')
            }
 
            

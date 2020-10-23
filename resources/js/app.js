@@ -6,6 +6,7 @@ import { initAdmin } from './admin'
 let addtocart = document.querySelectorAll('.add-to-cart')
 let cartCounter = document.querySelectorAll('.cartCounter')
 
+
 function updateCart(pizza){
     axios.post("/update-cart",pizza).then((res)=>{
         cartCounter[0].innerText = res.data.totalQuantity

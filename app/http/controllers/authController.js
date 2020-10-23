@@ -39,7 +39,7 @@ function authController(){
         },
         register(req,res){
             res.render('auth/register')
-        },
+        },  
         async postRegister(req,res){
            const {name,email,password} = req.body
            if(!name || !email || !password){

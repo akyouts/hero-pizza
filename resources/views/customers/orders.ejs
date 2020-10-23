@@ -18,6 +18,7 @@
                     <th class="px-4 py-2 text-left">Phone</th>
                     <th class="px-4 py-2 text-left">Address</th>
                     <th class="px-4 py-2 text-left">Time</th>
+                    <th class="px-4 py-2 text-left">Order status</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,6 +37,9 @@
                     <td class="border px-4 py-2">
                         <%= moment(orders.createdAt).format('hh:mm A') %>
                     </td>
+                    <td class="border px-4 py-2">
+                        <%= orders.status %>
+                    </td>
                    
                 </tr>
                 <% }) %>
@@ -48,3 +52,4 @@
         </table>
     </div>
 </section>
+
